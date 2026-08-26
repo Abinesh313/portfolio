@@ -56,7 +56,7 @@ export default function Experience() {
                     userSelect: 'none'
                   }}
                 >
-                  <div style={{ flex: 1, minWidth: '260px' }}>
+                  <div style={{ flex: 1, minWidth: 0 }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap', marginBottom: '0.4rem' }}>
                       <h3 style={{ fontSize: '1.45rem', fontWeight: 600, fontFamily: 'var(--font-display)', letterSpacing: '-0.02em' }}>
                         {exp.role}

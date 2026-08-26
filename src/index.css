@@ -537,6 +537,13 @@ h6 {
   .nav-leetcode-pill {
     display: none !important;
   }
+
+  .leetcode-verify-btn,
+  .leetcode-celebrate-btn {
+    padding: 0.52rem 0.9rem !important;
+    font-size: 0.82rem !important;
+    gap: 0.4rem !important;
+  }
 }
 
 @media (max-width: 520px) {

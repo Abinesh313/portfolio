@@ -59,21 +59,17 @@ export default function Projects() {
                 <div 
                   onClick={() => toggleProject(project.id)}
                   style={{ 
-                    display: 'flex', 
-                    justifyContent: 'space-between', 
-                    alignItems: 'flex-start', 
-                    flexWrap: 'wrap', 
-                    gap: '1.25rem', 
-                    marginBottom: '1rem',
                     cursor: 'pointer',
-                    userSelect: 'none'
+                    userSelect: 'none',
+                    marginBottom: '1rem'
                   }}
                 >
-                  <div style={{ flex: 1, minWidth: '260px' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', flexWrap: 'wrap', marginBottom: '0.4rem' }}>
+                  {/* Top Badges & Chevron Row */}
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.6rem', gap: '0.5rem' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
                       <span 
                         style={{
-                          padding: '0.2rem 0.65rem',
+                          padding: '0.2rem 0.6rem',
                           borderRadius: '6px',
                           fontSize: '0.72rem',
                           fontFamily: 'var(--font-mono)',
@@ -101,48 +97,10 @@ export default function Projects() {
                       >
                         {project.badge}
                       </span>
-                      <span style={{ fontSize: '0.82rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
+                      <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
                         {project.type}
                       </span>
                     </div>
-
-                    <h3 style={{ fontSize: '1.75rem', fontWeight: 600, fontFamily: 'var(--font-display)', letterSpacing: '-0.02em', marginBottom: '0.25rem' }}>
-                      <span style={{ color: 'var(--text-accent)', marginRight: '0.35rem', fontFamily: 'var(--font-mono)', fontSize: '1.3rem', fontWeight: 600 }}>0{idx + 1}.</span>
-                      {project.title}
-                    </h3>
-                    <div style={{ color: 'var(--text-secondary)', fontSize: '0.98rem', fontWeight: 500 }}>
-                      {project.subtitle}
-                    </div>
-                  </div>
-
-                  {/* Action Links & Toggle Button */}
-                  <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap', alignItems: 'center' }}>
-                    {project.liveUrl && (
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        className="btn btn-primary"
-                        style={{ padding: '0.45rem 0.95rem', fontSize: '0.82rem' }}
-                      >
-                        <ExternalLink size={14} />
-                        <span>Live Site</span>
-                      </a>
-                    )}
-                    {project.githubUrl && (
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        className="btn btn-secondary"
-                        style={{ padding: '0.45rem 0.95rem', fontSize: '0.82rem' }}
-                      >
-                        <GithubIcon size={14} />
-                        <span>Code</span>
-                      </a>
-                    )}
 
                     {/* Bold Chevron Toggle Button */}
                     <button
@@ -173,6 +131,44 @@ export default function Projects() {
                         <ChevronDown size={18} strokeWidth={2.8} />
                       )}
                     </button>
+                  </div>
+
+                  {/* Project Title & Subtitle */}
+                  <h3 style={{ fontSize: 'clamp(1.25rem, 3.5vw, 1.7rem)', fontWeight: 600, fontFamily: 'var(--font-display)', letterSpacing: '-0.02em', marginBottom: '0.25rem', wordBreak: 'break-word' }}>
+                    {project.title}
+                  </h3>
+                  <div style={{ color: 'var(--text-secondary)', fontSize: '0.94rem', fontWeight: 500, marginBottom: '0.85rem' }}>
+                    {project.subtitle}
+                  </div>
+
+                  {/* Action Links */}
+                  <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap', alignItems: 'center' }}>
+                    {project.liveUrl && (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="btn btn-primary"
+                        style={{ padding: '0.42rem 0.9rem', fontSize: '0.82rem' }}
+                      >
+                        <ExternalLink size={14} />
+                        <span>Live Site</span>
+                      </a>
+                    )}
+                    {project.githubUrl && (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="btn btn-secondary"
+                        style={{ padding: '0.42rem 0.9rem', fontSize: '0.82rem' }}
+                      >
+                        <GithubIcon size={14} />
+                        <span>Code</span>
+                      </a>
+                    )}
                   </div>
                 </div>
 

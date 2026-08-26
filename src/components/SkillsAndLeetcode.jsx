@@ -109,12 +109,12 @@ export default function SkillsAndLeetcode() {
               </p>
             </div>
 
-            <div style={{ display: 'flex', gap: '0.85rem', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', gap: '0.65rem', flexWrap: 'wrap' }}>
               <a
                 href={leetcodeHighlights.profileUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-primary"
+                className="btn btn-primary leetcode-verify-btn"
                 style={{
                   background: 'linear-gradient(135deg, #FFA116 0%, #E76F51 100%)',
                   boxShadow: '0 4px 20px rgba(255, 161, 22, 0.3)',
@@ -128,7 +128,7 @@ export default function SkillsAndLeetcode() {
 
               <button
                 onClick={handleConfetti}
-                className="btn btn-secondary"
+                className="btn btn-secondary leetcode-celebrate-btn"
                 title="Celebrate milestone"
               >
                 <Trophy size={16} color="#FFA116" />
