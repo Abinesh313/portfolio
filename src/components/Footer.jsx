@@ -1,6 +1,6 @@
 import React from 'react';
 import { personalInfo } from '../data/portfolioData';
-import { ArrowUp } from 'lucide-react';
+import { ArrowUp, Download } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, LeetCodeIcon } from './Icons';
 
 export default function Footer() {
@@ -36,7 +36,26 @@ export default function Footer() {
           </div>
 
           {/* Social Links & Back to Top */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
+            <a
+              href={personalInfo.resumeDriveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-outline"
+              style={{
+                padding: '0.4rem 0.85rem',
+                fontSize: '0.8rem',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.4rem',
+                textDecoration: 'none'
+              }}
+              title="Download Official Resume PDF"
+            >
+              <Download size={14} />
+              <span>Resume PDF</span>
+            </a>
+
             <a
               href={personalInfo.socials.github}
               target="_blank"

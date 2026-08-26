@@ -499,3 +499,20 @@ h6 {
     display: none !important;
   }
 }
+
+/* Mobile Header & Layout Optimization */
+.brand-subtitle {
+  display: block;
+}
+
+@media (max-width: 540px) {
+  .brand-subtitle {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  #hero {
+    padding-top: 6rem !important;
+  }
+}

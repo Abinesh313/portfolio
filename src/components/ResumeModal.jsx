@@ -97,7 +97,30 @@ ${projectsData.map(p => `${p.title} (${p.type})\n${p.features.map(f => `• ${f}
             </span>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', flexWrap: 'wrap' }}>
+            <a
+              href={personalInfo.resumeDriveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-secondary"
+              style={{
+                padding: '0.4rem 0.85rem',
+                fontSize: '0.8rem',
+                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                color: '#FFFFFF',
+                border: 'none',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.4rem',
+                textDecoration: 'none'
+              }}
+              title="Open Official Resume PDF on Google Drive"
+            >
+              <Download size={14} />
+              <span>Drive PDF</span>
+              <ExternalLink size={12} style={{ opacity: 0.7 }} />
+            </a>
+
             <button
               onClick={handleCopyText}
               className="btn btn-secondary"

@@ -13,6 +13,7 @@ export const personalInfo = {
     email: "mailto:gabineshpgunasekaran313@gmail.com",
     phone: "tel:+918248029669"
   },
+  resumeDriveUrl: "https://drive.google.com/file/d/1gdDiUJvw04f7bok5ExTNJpjQY_Ks0hpq/view?usp=sharing",
   stats: [
     { label: "LeetCode Solved", value: "1030+", subtitle: "Data Structures & Algorithms", highlight: true },
     { label: "Engineering Internships", value: "2", subtitle: "Cognizant & Nissan Digital", highlight: false },

@@ -8,7 +8,9 @@ import {
   Award,
   Layers,
   Server,
-  Zap
+  Zap,
+  Download,
+  ExternalLink
 } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, LeetCodeIcon } from './Icons';
 import InteractiveTerminal from './InteractiveTerminal';
@@ -16,7 +18,7 @@ import GenerativeHeadline from './GenerativeHeadline';
 
 export default function Hero({ onOpenResume }) {
   return (
-    <section id="hero" className="section" style={{ paddingTop: '7.5rem', paddingBottom: '4rem' }}>
+    <section id="hero" className="section" style={{ paddingTop: '6.5rem', paddingBottom: '3.5rem' }}>
       <div className="container">
 
         {/* Hero Split Grid (Intro + Interactive Terminal) */}
@@ -50,7 +52,7 @@ export default function Hero({ onOpenResume }) {
             </p>
 
             {/* Action Buttons */}
-            <div style={{ display: 'flex', gap: '0.85rem', flexWrap: 'wrap', alignItems: 'center', marginBottom: '2rem' }}>
+            <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', alignItems: 'center', marginBottom: '2rem' }}>
               <a href="#projects" className="btn btn-primary">
                 <span>Explore Projects</span>
                 <ArrowRight size={16} />
@@ -60,6 +62,19 @@ export default function Hero({ onOpenResume }) {
                 <FileText size={16} />
                 <span>Interactive Resume</span>
               </button>
+
+              <a 
+                href={personalInfo.resumeDriveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-outline"
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem' }}
+                title="Open Official PDF Resume in Google Drive"
+              >
+                <Download size={15} />
+                <span>Resume (Drive PDF)</span>
+                <ExternalLink size={12} style={{ opacity: 0.7 }} />
+              </a>
 
               <a href="#contact" className="btn btn-outline">
                 <Mail size={15} />

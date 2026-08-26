@@ -5,7 +5,8 @@ import {
   Menu,
   X,
   Sun,
-  Moon
+  Moon,
+  Download
 } from 'lucide-react';
 import { LeetCodeIcon } from './Icons';
 
@@ -55,11 +56,11 @@ export default function Navbar({ onOpenResume, theme, onToggleTheme }) {
         right: 0,
         zIndex: 100,
         transition: 'all 0.3s ease',
-        backgroundColor: isScrolled ? 'var(--bg-glass)' : 'transparent',
-        backdropFilter: isScrolled ? 'blur(16px)' : 'none',
-        WebkitBackdropFilter: isScrolled ? 'blur(16px)' : 'none',
-        borderBottom: isScrolled ? '1px solid var(--border-subtle)' : 'none',
-        padding: isScrolled ? '0.75rem 0' : '1.25rem 0'
+        backgroundColor: 'var(--bg-glass)',
+        backdropFilter: 'blur(20px)',
+        WebkitBackdropFilter: 'blur(20px)',
+        borderBottom: '1px solid var(--border-subtle)',
+        padding: isScrolled ? '0.65rem 0' : '0.85rem 0'
       }}
     >
       <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
@@ -72,14 +73,16 @@ export default function Navbar({ onOpenResume, theme, onToggleTheme }) {
             alignItems: 'center',
             gap: '0.6rem',
             textDecoration: 'none',
-            color: 'var(--text-primary)'
+            color: 'var(--text-primary)',
+            flexShrink: 0
           }}
         >
           <div
             style={{
               position: 'relative',
               width: '38px',
-              height: '38px'
+              height: '38px',
+              flexShrink: 0
             }}
           >
             <img
@@ -95,11 +98,11 @@ export default function Navbar({ onOpenResume, theme, onToggleTheme }) {
               }}
             />
           </div>
-          <div>
-            <div style={{ fontFamily: 'var(--font-serif)', fontWeight: 700, fontSize: '1.1rem', letterSpacing: '-0.01em' }}>
+          <div style={{ minWidth: 'max-content' }}>
+            <div style={{ fontFamily: 'var(--font-serif)', fontWeight: 700, fontSize: '1.05rem', letterSpacing: '-0.01em', whiteSpace: 'nowrap' }}>
               Abinesh G
             </div>
-            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', color: 'var(--text-accent)', letterSpacing: '0.05em' }}>
+            <div className="brand-subtitle" style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', color: 'var(--text-accent)', letterSpacing: '0.05em', whiteSpace: 'nowrap' }}>
               SDE & Full-Stack
             </div>
           </div>
@@ -243,7 +246,7 @@ export default function Navbar({ onOpenResume, theme, onToggleTheme }) {
               {link.label}
             </a>
           ))}
-          <div style={{ display: 'flex', gap: '0.75rem', marginTop: '0.5rem' }}>
+          <div style={{ display: 'flex', gap: '0.75rem', marginTop: '0.5rem', flexWrap: 'wrap' }}>
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
@@ -253,8 +256,19 @@ export default function Navbar({ onOpenResume, theme, onToggleTheme }) {
               style={{ flex: 1, padding: '0.7rem' }}
             >
               <FileText size={16} />
-              <span>View Resume</span>
+              <span>Interactive Resume</span>
             </button>
+            <a
+              href={personalInfo.resumeDriveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-secondary"
+              style={{ padding: '0.7rem 1rem', display: 'flex', alignItems: 'center', gap: '0.4rem', textDecoration: 'none' }}
+              title="Open Official Resume PDF on Google Drive"
+            >
+              <Download size={16} />
+              <span>Drive PDF</span>
+            </a>
           </div>
         </div>
       )}
