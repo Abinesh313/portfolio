@@ -6,9 +6,10 @@ import {
   X,
   Sun,
   Moon,
-  Download
+  Download,
+  ChevronRight
 } from 'lucide-react';
-import { LeetCodeIcon } from './Icons';
+import { LeetCodeIcon, GithubIcon, LinkedinIcon } from './Icons';
 
 export default function Navbar({ onOpenResume, theme, onToggleTheme }) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -215,67 +216,118 @@ export default function Navbar({ onOpenResume, theme, onToggleTheme }) {
         </div>
       </div>
 
-      {/* Mobile Drawer (100% Solid Opaque Background) */}
+      {/* Mobile Drawer (100% Solid Opaque Full-Screen Background) */}
       {mobileMenuOpen && (
         <div
           style={{
             position: 'fixed',
-            top: '58px',
+            top: '56px',
             left: 0,
             right: 0,
+            bottom: 0,
+            height: 'calc(100vh - 56px)',
             backgroundColor: 'var(--bg-drawer)',
-            borderBottom: '2px solid var(--border-accent)',
-            padding: '1.25rem 1.5rem 2rem',
+            padding: '1.25rem 1.25rem 2.5rem',
             display: 'flex',
             flexDirection: 'column',
-            gap: '0.85rem',
+            justifyContent: 'space-between',
             zIndex: 99999,
-            boxShadow: '0 25px 60px rgba(0, 0, 0, 0.45)',
-            maxHeight: 'calc(100vh - 60px)',
             overflowY: 'auto'
           }}
         >
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              onClick={() => setMobileMenuOpen(false)}
-              style={{
-                textDecoration: 'none',
-                fontSize: '1.05rem',
-                fontWeight: 600,
-                color: activeSection === link.href.replace('#', '') ? 'var(--text-accent)' : 'var(--text-primary)',
-                padding: '0.65rem 0',
-                borderBottom: '1px solid var(--border-subtle)',
-                display: 'block'
-              }}
-            >
-              {link.label}
-            </a>
-          ))}
-          <div style={{ display: 'flex', gap: '0.75rem', marginTop: '0.75rem', flexWrap: 'wrap' }}>
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenResume();
-              }}
-              className="btn btn-primary"
-              style={{ flex: 1, padding: '0.75rem', justifyContent: 'center' }}
-            >
-              <FileText size={16} />
-              <span>Interactive Resume</span>
-            </button>
-            <a
-              href={personalInfo.resumeDriveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-secondary"
-              style={{ padding: '0.75rem 1.1rem', display: 'flex', alignItems: 'center', gap: '0.4rem', textDecoration: 'none', justifyContent: 'center' }}
-              title="Open Official Resume PDF on Google Drive"
-            >
-              <Download size={16} />
-              <span>Drive PDF</span>
-            </a>
+          {/* Navigation Link Cards */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+            {navLinks.map((link, idx) => (
+              <a
+                key={link.label}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                style={{
+                  textDecoration: 'none',
+                  fontSize: '1rem',
+                  fontWeight: 600,
+                  color: activeSection === link.href.replace('#', '') ? 'var(--text-accent)' : 'var(--text-primary)',
+                  padding: '0.85rem 1rem',
+                  borderRadius: 'var(--radius-sm)',
+                  backgroundColor: 'var(--bg-card)',
+                  border: activeSection === link.href.replace('#', '') ? '1px solid var(--border-accent)' : '1px solid var(--border-subtle)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  transition: 'var(--transition)'
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--text-accent)', fontWeight: 700 }}>
+                    {`0${idx + 1}`.slice(-2)}
+                  </span>
+                  <span>{link.label}</span>
+                </div>
+                <ChevronRight size={16} style={{ color: 'var(--text-muted)' }} />
+              </a>
+            ))}
+          </div>
+
+          {/* Bottom Actions & Socials */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '1.5rem', paddingTop: '1.25rem', borderTop: '1px solid var(--border-subtle)' }}>
+            <div style={{ display: 'flex', gap: '0.65rem' }}>
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onOpenResume();
+                }}
+                className="btn btn-primary"
+                style={{ flex: 1, padding: '0.75rem', fontSize: '0.88rem', justifyContent: 'center' }}
+              >
+                <FileText size={16} />
+                <span>Interactive Resume</span>
+              </button>
+              <a
+                href={personalInfo.resumeDriveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-secondary"
+                style={{ padding: '0.75rem 1rem', display: 'flex', alignItems: 'center', gap: '0.4rem', textDecoration: 'none', justifyContent: 'center' }}
+                title="Open Official Resume PDF on Google Drive"
+              >
+                <Download size={16} />
+                <span>Drive PDF</span>
+              </a>
+            </div>
+
+            {/* Quick Socials */}
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem', paddingTop: '0.5rem' }}>
+              <a
+                href={personalInfo.socials.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-secondary"
+                style={{ width: '38px', height: '38px', borderRadius: '50%', padding: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                title="GitHub"
+              >
+                <GithubIcon size={16} />
+              </a>
+              <a
+                href={personalInfo.socials.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-secondary"
+                style={{ width: '38px', height: '38px', borderRadius: '50%', padding: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                title="LinkedIn"
+              >
+                <LinkedinIcon size={16} color="#0A66C2" />
+              </a>
+              <a
+                href={personalInfo.socials.leetcode}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-secondary"
+                style={{ width: '38px', height: '38px', borderRadius: '50%', padding: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                title="LeetCode (1030+ Solved)"
+              >
+                <LeetCodeIcon size={16} color="#FFA116" />
+              </a>
+            </div>
           </div>
         </div>
       )}
