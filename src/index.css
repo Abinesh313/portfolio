@@ -13,6 +13,7 @@
   /* Theme Tokens - Dark Luxe (Default) */
   --bg-primary: #080C14;
   --bg-secondary: #0E1524;
+  --bg-drawer: #0A0F1D;
   --bg-card: rgba(18, 22, 32, 0.68);
   --bg-card-hover: rgba(26, 32, 48, 0.78);
   --bg-glass: rgba(14, 18, 28, 0.7);
@@ -51,6 +52,7 @@
 [data-theme='light'] {
   --bg-primary: #F9F6F0;
   --bg-secondary: transparent;
+  --bg-drawer: #FFFFFF;
   --bg-card: rgba(255, 255, 255, 0.72);
   --bg-card-hover: rgba(255, 255, 255, 0.85);
   --bg-glass: rgba(249, 246, 240, 0.75);

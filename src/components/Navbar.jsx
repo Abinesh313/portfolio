@@ -215,21 +215,24 @@ export default function Navbar({ onOpenResume, theme, onToggleTheme }) {
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer (100% Solid Opaque Background) */}
       {mobileMenuOpen && (
         <div
           style={{
             position: 'fixed',
-            top: '70px',
+            top: '58px',
             left: 0,
             right: 0,
-            backgroundColor: 'var(--bg-secondary)',
-            borderBottom: '1px solid var(--border-card)',
-            padding: '1.5rem',
+            backgroundColor: 'var(--bg-drawer)',
+            borderBottom: '2px solid var(--border-accent)',
+            padding: '1.25rem 1.5rem 2rem',
             display: 'flex',
             flexDirection: 'column',
-            gap: '1rem',
-            boxShadow: 'var(--shadow-luxe)'
+            gap: '0.85rem',
+            zIndex: 99999,
+            boxShadow: '0 25px 60px rgba(0, 0, 0, 0.45)',
+            maxHeight: 'calc(100vh - 60px)',
+            overflowY: 'auto'
           }}
         >
           {navLinks.map((link) => (
@@ -239,24 +242,25 @@ export default function Navbar({ onOpenResume, theme, onToggleTheme }) {
               onClick={() => setMobileMenuOpen(false)}
               style={{
                 textDecoration: 'none',
-                fontSize: '1.1rem',
+                fontSize: '1.05rem',
                 fontWeight: 600,
-                color: 'var(--text-primary)',
-                padding: '0.5rem 0',
-                borderBottom: '1px solid var(--border-subtle)'
+                color: activeSection === link.href.replace('#', '') ? 'var(--text-accent)' : 'var(--text-primary)',
+                padding: '0.65rem 0',
+                borderBottom: '1px solid var(--border-subtle)',
+                display: 'block'
               }}
             >
               {link.label}
             </a>
           ))}
-          <div style={{ display: 'flex', gap: '0.75rem', marginTop: '0.5rem', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '0.75rem', marginTop: '0.75rem', flexWrap: 'wrap' }}>
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
                 onOpenResume();
               }}
               className="btn btn-primary"
-              style={{ flex: 1, padding: '0.7rem' }}
+              style={{ flex: 1, padding: '0.75rem', justifyContent: 'center' }}
             >
               <FileText size={16} />
               <span>Interactive Resume</span>
@@ -266,7 +270,7 @@ export default function Navbar({ onOpenResume, theme, onToggleTheme }) {
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-secondary"
-              style={{ padding: '0.7rem 1rem', display: 'flex', alignItems: 'center', gap: '0.4rem', textDecoration: 'none' }}
+              style={{ padding: '0.75rem 1.1rem', display: 'flex', alignItems: 'center', gap: '0.4rem', textDecoration: 'none', justifyContent: 'center' }}
               title="Open Official Resume PDF on Google Drive"
             >
               <Download size={16} />
