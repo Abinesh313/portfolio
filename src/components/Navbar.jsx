@@ -237,7 +237,7 @@ export default function Navbar({ onOpenResume, theme, onToggleTheme }) {
         >
           {/* Navigation Link Cards */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
-            {navLinks.map((link, idx) => (
+            {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
@@ -247,7 +247,7 @@ export default function Navbar({ onOpenResume, theme, onToggleTheme }) {
                   fontSize: '1rem',
                   fontWeight: 600,
                   color: activeSection === link.href.replace('#', '') ? 'var(--text-accent)' : 'var(--text-primary)',
-                  padding: '0.85rem 1rem',
+                  padding: '0.85rem 1.15rem',
                   borderRadius: 'var(--radius-sm)',
                   backgroundColor: 'var(--bg-card)',
                   border: activeSection === link.href.replace('#', '') ? '1px solid var(--border-accent)' : '1px solid var(--border-subtle)',
@@ -257,12 +257,7 @@ export default function Navbar({ onOpenResume, theme, onToggleTheme }) {
                   transition: 'var(--transition)'
                 }}
               >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--text-accent)', fontWeight: 700 }}>
-                    {`0${idx + 1}`.slice(-2)}
-                  </span>
-                  <span>{link.label}</span>
-                </div>
+                <span>{link.label}</span>
                 <ChevronRight size={16} style={{ color: 'var(--text-muted)' }} />
               </a>
             ))}
