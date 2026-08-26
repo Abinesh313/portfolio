@@ -505,14 +505,23 @@ h6 {
   display: block;
 }
 
-@media (max-width: 540px) {
+@media (max-width: 600px) {
   .brand-subtitle {
     display: none !important;
+  }
+
+  .nav-leetcode-pill {
+    display: none !important;
+  }
+
+  .nav-resume-btn {
+    padding: 0.4rem 0.8rem !important;
+    font-size: 0.8rem !important;
   }
 }
 
 @media (max-width: 768px) {
   #hero {
-    padding-top: 6rem !important;
+    padding-top: 5.5rem !important;
   }
 }

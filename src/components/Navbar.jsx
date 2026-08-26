@@ -136,42 +136,44 @@ export default function Navbar({ onOpenResume, theme, onToggleTheme }) {
         </nav>
 
         {/* Right Actions */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexShrink: 0 }}>
 
-          {/* LeetCode link */}
+          {/* LeetCode link (hidden on small mobile to avoid navbar clipping) */}
           <a
             href={personalInfo.socials.leetcode}
             target="_blank"
             rel="noopener noreferrer"
             title="LeetCode (1030+ Solved)"
-            className="btn-outline"
+            className="nav-leetcode-pill btn-outline"
             style={{
-              padding: '0.45rem 0.85rem',
-              fontSize: '0.82rem',
+              padding: '0.4rem 0.75rem',
+              fontSize: '0.8rem',
               borderRadius: 'var(--radius-full)',
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '0.4rem',
-              textDecoration: 'none'
+              gap: '0.35rem',
+              textDecoration: 'none',
+              flexShrink: 0
             }}
           >
-            <LeetCodeIcon size={15} color="#FFA116" />
+            <LeetCodeIcon size={14} color="#FFA116" />
             <span className="font-mono" style={{ fontWeight: 600 }}>1030+</span>
           </a>
 
           {/* Resume View Button */}
           <button
             onClick={onOpenResume}
-            className="btn btn-primary"
+            className="nav-resume-btn btn btn-primary"
             style={{
-              padding: '0.5rem 1.1rem',
-              fontSize: '0.85rem',
+              padding: '0.45rem 0.95rem',
+              fontSize: '0.82rem',
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '0.4rem'
+              gap: '0.35rem',
+              flexShrink: 0
             }}
           >
-            <FileText size={15} />
+            <FileText size={14} />
             <span>Resume</span>
           </button>
 
@@ -181,17 +183,18 @@ export default function Navbar({ onOpenResume, theme, onToggleTheme }) {
             aria-label="Toggle theme"
             className="btn-secondary"
             style={{
-              width: '38px',
-              height: '38px',
+              width: '36px',
+              height: '36px',
               padding: 0,
               borderRadius: '50%',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              cursor: 'pointer'
+              cursor: 'pointer',
+              flexShrink: 0
             }}
           >
-            {theme === 'dark' ? <Sun size={17} color="#F4A261" /> : <Moon size={17} color="#64748B" />}
+            {theme === 'dark' ? <Sun size={16} color="#F4A261" /> : <Moon size={16} color="#64748B" />}
           </button>
 
           {/* Mobile Menu Toggle */}
