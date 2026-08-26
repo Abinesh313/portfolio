@@ -142,7 +142,7 @@ export default function Hero({ onOpenResume }) {
                     {personalInfo.name}
                   </div>
                   <div style={{ fontSize: '0.78rem', color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)' }}>
-                    SDE Intern @ Cognizant & Nissan Digital
+                    Ex - SDE Intern @ Cognizant & Nissan Digital
                   </div>
                 </div>
               </div>
