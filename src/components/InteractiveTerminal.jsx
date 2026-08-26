@@ -45,6 +45,7 @@ export default function InteractiveTerminal() {
           type: 'output',
           text: `[LANGUAGES] Java (Expert), Python (Practitioner), SQL, JavaScript
 [BACKEND]   Spring Boot, Spring Security, REST APIs, JWT/OAuth2, PostgreSQL
+[AI AGENTS] Antigravity IDE, Gemini (Google AI), Claude (Anthropic), ChatGPT (OpenAI)
 [DEVOPS]    Docker, Docker Compose, AWS, GitHub Actions, CI/CD
 [CORE CS]   Data Structures & Algorithms (1030+ Solved), OOP, SDLC`
         });

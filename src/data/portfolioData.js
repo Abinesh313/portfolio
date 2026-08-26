@@ -182,6 +182,12 @@ export const skillsData = {
     { name: "Object-Oriented Programming (OOP)", level: "Advanced", desc: "Solid principles, Design patterns, Abstraction & Polymorphism" },
     { name: "Relational Database Design", level: "Advanced", desc: "Normalization (1NF to BCNF), Entity-Relationship modeling" },
     { name: "Software Development Life Cycle (SDLC)", level: "Advanced", desc: "Requirement analysis, Design, Implementation, QA & Deployment" }
+  ],
+  aiAndAgentTools: [
+    { name: "Antigravity Agents", level: "Advanced", desc: "Agentic coding workflows, multi-tool pipelines, codebase pair programming" },
+    { name: "Gemini (Google AI)", level: "Advanced", desc: "Gemini reasoning pipelines, code generation & context-aware refactoring" },
+    { name: "Claude (Anthropic)", level: "Advanced", desc: "System architecture analysis, algorithmic design, and advanced prompt engineering" },
+    { name: "ChatGPT (OpenAI)", level: "Advanced", desc: "Technical research, automated debugging, documentation & unit test authoring" }
   ]
 };
 

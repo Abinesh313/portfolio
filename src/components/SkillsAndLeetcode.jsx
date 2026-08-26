@@ -9,7 +9,8 @@ import {
   Server,
   Cloud,
   BookOpen,
-  Sparkles
+  Sparkles,
+  Bot
 } from 'lucide-react';
 import { LeetCodeIcon } from './Icons';
 import confetti from 'canvas-confetti';
@@ -22,7 +23,8 @@ export default function SkillsAndLeetcode() {
     { key: 'programmingLanguages', label: 'Languages', icon: Terminal },
     { key: 'backendAndApis', label: 'Backend & APIs', icon: Server },
     { key: 'cloudAndDevops', label: 'Cloud & DevOps', icon: Cloud },
-    { key: 'coreCs', label: 'Core CS Foundations', icon: BookOpen }
+    { key: 'aiAndAgentTools', label: 'AI & Agent Tools', icon: Bot },
+    { key: 'coreCs', label: 'Core CS', icon: BookOpen }
   ];
 
   const handleConfetti = () => {
@@ -39,6 +41,7 @@ export default function SkillsAndLeetcode() {
         ...skillsData.programmingLanguages.map(s => ({ ...s, group: 'Languages' })),
         ...skillsData.backendAndApis.map(s => ({ ...s, group: 'Backend & APIs' })),
         ...skillsData.cloudAndDevops.map(s => ({ ...s, group: 'Cloud & DevOps' })),
+        ...skillsData.aiAndAgentTools.map(s => ({ ...s, group: 'AI & Agent Tools' })),
         ...skillsData.coreCs.map(s => ({ ...s, group: 'Core CS' }))
       ];
     }
