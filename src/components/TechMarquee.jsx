@@ -97,9 +97,6 @@ export default function TechMarquee() {
           width: max-content;
           animation: marquee 28s linear infinite;
         }
-        .marquee-track:hover {
-          animation-play-state: paused;
-        }
         @keyframes marquee {
           0% { transform: translateX(0); }
           100% { transform: translateX(-50%); }
@@ -107,7 +104,6 @@ export default function TechMarquee() {
         .marquee-pill:hover {
           border-color: var(--accent-primary);
           background-color: rgba(224, 122, 95, 0.12);
-          transform: translateY(-2px);
         }
       `}</style>
     </div>
