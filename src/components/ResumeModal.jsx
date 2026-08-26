@@ -26,7 +26,7 @@ WORK EXPERIENCE
 ${workExperience.map(w => `${w.role} - ${w.company}\n${w.period}\n${w.points.map(p => `• ${p}`).join('\n')}`).join('\n\n')}
 
 TECHNICAL SKILLS
-• Programming Languages: Java, C++, Python, SQL
+• Programming Languages: Java, Python, SQL, JavaScript
 • Backend & APIs: Spring Boot, Spring Security, REST API Development, JWT/OAuth2, PostgreSQL
 • Cloud & Tools: AWS, Docker, GitHub, Git, Agile/Scrum, CI/CD
 • Core Concepts: Data Structures & Algorithms, Object-Oriented Programming (OOP), SDLC, Relational Database Design
@@ -253,7 +253,7 @@ ${projectsData.map(p => `${p.title} (${p.type})\n${p.features.map(f => `• ${f}
               Technical Skills
             </h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '3px', color: '#334155' }}>
-              <div><strong>Programming Languages:</strong> Java, C++, Python, SQL</div>
+              <div><strong>Programming Languages:</strong> Java, Python, SQL, JavaScript</div>
               <div><strong>Backend & APIs:</strong> Spring Boot, Spring Security, REST API Development, JWT/OAuth2, PostgreSQL</div>
               <div><strong>Cloud & Tools:</strong> AWS, Docker, GitHub, Git, Agile/Scrum, CI/CD</div>
               <div><strong>Core Concepts:</strong> Data Structures & Algorithms, Object-Oriented Programming (OOP), SDLC, Relational Database Design</div>

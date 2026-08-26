@@ -43,7 +43,7 @@ export default function InteractiveTerminal() {
       case 'skills':
         newHistory.push({
           type: 'output',
-          text: `[LANGUAGES] Java (Expert), C++, Python, SQL, JavaScript
+          text: `[LANGUAGES] Java (Expert), Python (Practitioner), SQL, JavaScript
 [BACKEND]   Spring Boot, Spring Security, REST APIs, JWT/OAuth2, PostgreSQL
 [DEVOPS]    Docker, Docker Compose, AWS, GitHub Actions, CI/CD
 [CORE CS]   Data Structures & Algorithms (1030+ Solved), OOP, SDLC`
@@ -55,7 +55,7 @@ export default function InteractiveTerminal() {
           type: 'output',
           text: `[LEETCODE] Profile: @${leetcodeHighlights.username}
 - Total Solved: ${leetcodeHighlights.problemsSolved}
-- Top Focus: Dynamic Programming, Graph/Trees, Arrays/Two Pointers, Greedy
+- Top Focus: Arrays & Two Pointers, Strings, Linked Lists, Stacks, Logic Building
 - Link: ${leetcodeHighlights.profileUrl}`
         });
         break;

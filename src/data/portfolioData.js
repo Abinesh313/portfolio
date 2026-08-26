@@ -159,8 +159,7 @@ export const projectsData = [
 export const skillsData = {
   programmingLanguages: [
     { name: "Java", level: "Expert", desc: "Core Java, Streams, Collections, Multithreading, OOP" },
-    { name: "C++", level: "Advanced", desc: "STL, Algorithms, Competitive Programming, Memory Optimization" },
-    { name: "Python", level: "Proficient", desc: "FastAPI, NLP scripting, Data Processing, Automation" },
+    { name: "Python", level: "Practitioner", desc: "NLP Scripting, Data Processing, Automation, Scripting" },
     { name: "SQL", level: "Advanced", desc: "PostgreSQL, Query Optimization, Joins, Triggers, Normalized Schemas" }
   ],
   backendAndApis: [
@@ -179,8 +178,8 @@ export const skillsData = {
     { name: "CI / CD", level: "Intermediate", desc: "Continuous Integration, automated testing & build pipelines" }
   ],
   coreCs: [
-    { name: "Data Structures & Algorithms", level: "Mastery", desc: "1030+ LeetCode solved (Trees, Graphs, DP, Heaps, Greedy)" },
-    { name: "Object-Oriented Programming (OOP)", level: "Mastery", desc: "Solid principles, Design patterns, Abstraction & Polymorphism" },
+    { name: "Data Structures & Algorithms", level: "Proficient", desc: "1030+ LeetCode Solved (Arrays, Two Pointers, Linked Lists, Stacks & Queues, Problem Solving)" },
+    { name: "Object-Oriented Programming (OOP)", level: "Advanced", desc: "Solid principles, Design patterns, Abstraction & Polymorphism" },
     { name: "Relational Database Design", level: "Advanced", desc: "Normalization (1NF to BCNF), Entity-Relationship modeling" },
     { name: "Software Development Life Cycle (SDLC)", level: "Advanced", desc: "Requirement analysis, Design, Implementation, QA & Deployment" }
   ]
@@ -220,13 +219,13 @@ export const leetcodeHighlights = {
   username: "Abinesh313",
   profileUrl: "https://leetcode.com/u/Abinesh313/",
   problemsSolved: "1030+",
-  tagline: "Dedicated problem solver with a strong foundation in Data Structures, Algorithms, and optimal time-space complexity.",
+  tagline: "Dedicated problem solver with a solid foundation in Data Structures, Algorithms, and practical logic building.",
   topics: [
     "Data Structures & Algorithms",
-    "Dynamic Programming",
-    "Trees & Graph Algorithms",
     "Arrays & Two Pointers",
+    "String Processing & Hashing",
     "Linked Lists, Stacks & Queues",
+    "Math, Logic & Simulation",
     "Time & Space Optimization"
   ]
 };
