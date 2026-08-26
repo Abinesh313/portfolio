@@ -95,7 +95,7 @@ export default function TechMarquee() {
         .marquee-track {
           display: flex;
           width: max-content;
-          animation: marquee 28s linear infinite;
+          animation: marquee 45s linear infinite;
         }
         @keyframes marquee {
           0% { transform: translateX(0); }

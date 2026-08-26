@@ -61,18 +61,18 @@ export default function ArchitectureFlow() {
     <div 
       className="glass-card"
       style={{
-        padding: '2rem',
-        marginTop: '2rem',
-        backgroundColor: 'rgba(9, 13, 22, 0.95)',
-        border: '1px solid rgba(224, 122, 95, 0.25)',
+        padding: '1.75rem',
+        marginTop: '1.5rem',
+        backgroundColor: 'var(--bg-card)',
+        border: '1px solid var(--border-card)',
         borderRadius: '16px'
       }}
     >
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.5rem' }}>
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem' }}>
-            <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#10B981', animation: 'pulse-ring 2s infinite' }} />
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: '#E07A5F', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+            <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#10B981' }} />
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--text-accent)', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 700 }}>
               INTERACTIVE SYSTEM ARCHITECTURE TOPOLOGY
             </span>
           </div>
@@ -89,12 +89,12 @@ export default function ArchitectureFlow() {
       <div 
         style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
           gap: '0.75rem',
-          marginBottom: '1.75rem'
+          marginBottom: '1.5rem'
         }}
       >
-        {nodes.map((node, idx) => {
+        {nodes.map((node) => {
           const Icon = node.icon;
           const isSelected = selectedNode === node.id;
           return (
@@ -102,19 +102,23 @@ export default function ArchitectureFlow() {
               key={node.id}
               onClick={() => setSelectedNode(node.id)}
               style={{
-                background: isSelected ? 'linear-gradient(135deg, rgba(224, 122, 95, 0.2) 0%, rgba(224, 122, 95, 0.05) 100%)' : 'rgba(255, 255, 255, 0.02)',
-                border: isSelected ? '1px solid #E07A5F' : '1px solid rgba(255, 255, 255, 0.08)',
-                padding: '1rem 0.85rem',
+                background: isSelected 
+                  ? 'rgba(224, 122, 95, 0.14)' 
+                  : 'var(--bg-tag)',
+                border: isSelected 
+                  ? '1.5px solid var(--accent-primary)' 
+                  : '1px solid var(--border-subtle)',
+                padding: '0.9rem 0.75rem',
                 borderRadius: '12px',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                gap: '0.5rem',
+                gap: '0.45rem',
                 cursor: 'pointer',
                 textAlign: 'center',
                 position: 'relative',
                 transition: 'all 0.25s ease',
-                boxShadow: isSelected ? '0 0 20px rgba(224, 122, 95, 0.2)' : 'none'
+                boxShadow: isSelected ? '0 4px 15px var(--accent-glow)' : 'none'
               }}
             >
               <div 
@@ -122,19 +126,20 @@ export default function ArchitectureFlow() {
                   width: '36px',
                   height: '36px',
                   borderRadius: '10px',
-                  backgroundColor: isSelected ? '#E07A5F' : 'rgba(255, 255, 255, 0.06)',
+                  backgroundColor: isSelected ? 'var(--accent-primary)' : 'var(--bg-card)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: isSelected ? '#FFFFFF' : '#94A3B8'
+                  color: isSelected ? '#FFFFFF' : 'var(--text-accent)',
+                  border: isSelected ? 'none' : '1px solid var(--border-subtle)'
                 }}
               >
                 <Icon size={18} />
               </div>
-              <span style={{ fontSize: '0.82rem', fontWeight: 700, color: isSelected ? '#FFFFFF' : '#CBD5E1', lineHeight: 1.3 }}>
+              <span style={{ fontSize: '0.82rem', fontWeight: 700, color: isSelected ? 'var(--text-primary)' : 'var(--text-secondary)', lineHeight: 1.3 }}>
                 {node.label}
               </span>
-              <span style={{ fontSize: '0.68rem', fontFamily: 'var(--font-mono)', color: isSelected ? '#E07A5F' : '#64748B' }}>
+              <span style={{ fontSize: '0.68rem', fontFamily: 'var(--font-mono)', color: isSelected ? 'var(--text-accent)' : 'var(--text-muted)' }}>
                 {node.tag}
               </span>
             </button>
@@ -146,9 +151,9 @@ export default function ArchitectureFlow() {
       <div 
         style={{
           padding: '1.25rem 1.5rem',
-          backgroundColor: 'rgba(0, 0, 0, 0.4)',
+          backgroundColor: 'var(--bg-tag)',
           borderRadius: '12px',
-          border: '1px solid rgba(224, 122, 95, 0.2)',
+          border: '1px solid var(--border-accent)',
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
@@ -157,31 +162,31 @@ export default function ArchitectureFlow() {
         }}
       >
         <div style={{ flex: 1, minWidth: '240px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.35rem' }}>
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: '#E07A5F', fontWeight: 700 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.35rem', flexWrap: 'wrap' }}>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--text-accent)', fontWeight: 700 }}>
               [COMPONENT INSPECTION]
             </span>
-            <span style={{ fontWeight: 700, fontSize: '0.95rem', color: '#FFFFFF' }}>
+            <span style={{ fontWeight: 700, fontSize: '0.95rem', color: 'var(--text-primary)' }}>
               {activeData.label}
             </span>
           </div>
-          <p style={{ fontSize: '0.88rem', color: '#94A3B8', lineHeight: 1.6 }}>
+          <p style={{ fontSize: '0.88rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
             {activeData.desc}
           </p>
         </div>
 
         <div 
           style={{
-            padding: '0.6rem 1rem',
-            backgroundColor: 'rgba(224, 122, 95, 0.08)',
+            padding: '0.55rem 0.95rem',
+            backgroundColor: 'var(--bg-card)',
             borderRadius: '8px',
-            border: '1px solid rgba(224, 122, 95, 0.25)',
+            border: '1px solid var(--border-card)',
             fontFamily: 'var(--font-mono)',
             fontSize: '0.78rem',
-            color: '#E07A5F'
+            color: 'var(--text-accent)'
           }}
         >
-          <span style={{ color: '#94A3B8' }}>STACK: </span>
+          <span style={{ color: 'var(--text-muted)' }}>STACK: </span>
           {activeData.tech}
         </div>
       </div>

@@ -3,10 +3,7 @@ import { workExperience } from '../data/portfolioData';
 import { Briefcase, Calendar, MapPin, CheckCircle2, ChevronDown, ChevronUp } from 'lucide-react';
 
 export default function Experience() {
-  const [expandedCards, setExpandedCards] = useState({
-    cognizant: true,
-    nissan: true
-  });
+  const [expandedCards, setExpandedCards] = useState({});
 
   const toggleCard = (id) => {
     setExpandedCards(prev => ({
@@ -111,27 +108,34 @@ export default function Experience() {
                       <span>{exp.period}</span>
                     </div>
 
-                    {/* Toggle Button */}
+                    {/* Bold Chevron Toggle Button */}
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
                         toggleCard(exp.id);
                       }}
                       className="btn-secondary"
+                      aria-label={isExpanded ? 'Collapse' : 'Expand'}
                       style={{
-                        padding: '0.35rem 0.75rem',
-                        fontSize: '0.78rem',
-                        borderRadius: 'var(--radius-full)',
-                        display: 'inline-flex',
+                        width: '34px',
+                        height: '34px',
+                        padding: 0,
+                        borderRadius: '50%',
+                        display: 'flex',
                         alignItems: 'center',
-                        gap: '0.3rem',
-                        color: 'var(--text-secondary)',
-                        border: '1px solid var(--border-subtle)'
+                        justifyContent: 'center',
+                        color: isExpanded ? 'var(--text-accent)' : 'var(--text-secondary)',
+                        border: '1px solid var(--border-subtle)',
+                        cursor: 'pointer',
+                        flexShrink: 0
                       }}
-                      title={isExpanded ? 'Collapse' : 'Expand Details'}
+                      title={isExpanded ? 'Collapse' : 'Expand'}
                     >
-                      <span>{isExpanded ? 'Less' : 'Details'}</span>
-                      {isExpanded ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
+                      {isExpanded ? (
+                        <ChevronUp size={18} strokeWidth={2.8} />
+                      ) : (
+                        <ChevronDown size={18} strokeWidth={2.8} />
+                      )}
                     </button>
                   </div>
                 </div>
@@ -159,19 +163,21 @@ export default function Experience() {
                     </div>
 
                     {/* Tech Stack Pills */}
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', flexWrap: 'wrap', paddingTop: '1rem', borderTop: '1px solid var(--border-subtle)' }}>
-                      <span style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', marginRight: '0.4rem' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem 0.5rem', flexWrap: 'wrap', paddingTop: '1rem', borderTop: '1px solid var(--border-subtle)' }}>
+                      <span style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', marginRight: '0.2rem' }}>
                         TECH STACK:
                       </span>
                       {exp.tech.map((t, tIdx) => (
-                        <React.Fragment key={tIdx}>
-                          <span className="tag-pill">
-                            {t}
-                          </span>
+                        <span 
+                          key={tIdx} 
+                          className="tag-pill"
+                          style={{ whiteSpace: 'nowrap', display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}
+                        >
+                          <span>{t}</span>
                           {tIdx < exp.tech.length - 1 && (
                             <span style={{ color: 'var(--text-muted)', fontSize: '0.7rem' }}>•</span>
                           )}
-                        </React.Fragment>
+                        </span>
                       ))}
                     </div>
                   </div>

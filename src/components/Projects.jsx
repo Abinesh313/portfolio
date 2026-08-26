@@ -15,12 +15,7 @@ import { GithubIcon } from './Icons';
 import ArchitectureFlow from './ArchitectureFlow';
 
 export default function Projects() {
-  const [expandedProjects, setExpandedProjects] = useState({
-    ipeb: true,
-    'glidez-solutions': true,
-    'ai-career-assistant': false,
-    'supermarket-system': false
-  });
+  const [expandedProjects, setExpandedProjects] = useState({});
 
   const toggleProject = (id) => {
     setExpandedProjects(prev => ({
@@ -149,27 +144,34 @@ export default function Projects() {
                       </a>
                     )}
 
-                    {/* Toggle Button */}
+                    {/* Bold Chevron Toggle Button */}
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
                         toggleProject(project.id);
                       }}
                       className="btn-secondary"
+                      aria-label={isExpanded ? 'Collapse' : 'Expand'}
                       style={{
-                        padding: '0.45rem 0.85rem',
-                        fontSize: '0.8rem',
-                        borderRadius: 'var(--radius-full)',
-                        display: 'inline-flex',
+                        width: '34px',
+                        height: '34px',
+                        padding: 0,
+                        borderRadius: '50%',
+                        display: 'flex',
                         alignItems: 'center',
-                        gap: '0.3rem',
-                        color: 'var(--text-secondary)',
-                        border: '1px solid var(--border-subtle)'
+                        justifyContent: 'center',
+                        color: isExpanded ? 'var(--text-accent)' : 'var(--text-secondary)',
+                        border: '1px solid var(--border-subtle)',
+                        cursor: 'pointer',
+                        flexShrink: 0
                       }}
-                      title={isExpanded ? 'Collapse' : 'Expand Details'}
+                      title={isExpanded ? 'Collapse' : 'Expand'}
                     >
-                      <span>{isExpanded ? 'Less' : 'Architecture'}</span>
-                      {isExpanded ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
+                      {isExpanded ? (
+                        <ChevronUp size={18} strokeWidth={2.8} />
+                      ) : (
+                        <ChevronDown size={18} strokeWidth={2.8} />
+                      )}
                     </button>
                   </div>
                 </div>
@@ -182,20 +184,13 @@ export default function Projects() {
                 {/* Collapsible Architecture & Key Features */}
                 {isExpanded && (
                   <div style={{ animation: 'fadeIn 0.3s ease' }}>
-                    {/* Project Deep-Dive Content (2 Column Layout) */}
-                    <div 
-                      style={{ 
-                        display: 'grid', 
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
-                        gap: '1.5rem',
-                        marginBottom: '1.5rem' 
-                      }}
-                    >
+                    {/* Project Deep-Dive Content (Responsive Grid Layout) */}
+                    <div className="project-columns-grid">
                       {/* Column 1: Core Key Features */}
                       <div 
                         style={{ 
-                          backgroundColor: 'rgba(0, 0, 0, 0.2)', 
-                          padding: '1.5rem', 
+                          backgroundColor: 'var(--bg-tag)', 
+                          padding: '1.25rem', 
                           borderRadius: 'var(--radius-md)', 
                           border: '1px solid var(--border-subtle)' 
                         }}
@@ -221,8 +216,8 @@ export default function Projects() {
                       {/* Column 2: System Specifications & Architecture */}
                       <div 
                         style={{ 
-                          backgroundColor: 'rgba(0, 0, 0, 0.2)', 
-                          padding: '1.5rem', 
+                          backgroundColor: 'var(--bg-tag)', 
+                          padding: '1.25rem', 
                           borderRadius: 'var(--radius-md)', 
                           border: '1px solid var(--border-subtle)',
                           display: 'flex',
@@ -246,7 +241,7 @@ export default function Projects() {
                           </h4>
                           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                             {project.architecture.map((arch, aIdx) => (
-                              <div key={aIdx} style={{ padding: '0.55rem 0.75rem', background: 'rgba(255, 255, 255, 0.03)', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-subtle)' }}>
+                              <div key={aIdx} style={{ padding: '0.55rem 0.75rem', background: 'var(--bg-card)', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-subtle)' }}>
                                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--text-accent)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                                   {arch.label}
                                 </div>
@@ -277,19 +272,21 @@ export default function Projects() {
                 )}
 
                 {/* Technologies Used Footer */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', flexWrap: 'wrap', paddingTop: '1rem', borderTop: '1px solid var(--border-subtle)', marginTop: '1.25rem' }}>
-                  <span style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', marginRight: '0.4rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem 0.5rem', flexWrap: 'wrap', paddingTop: '1rem', borderTop: '1px solid var(--border-subtle)', marginTop: '1.25rem' }}>
+                  <span style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', marginRight: '0.2rem' }}>
                     TECH:
                   </span>
                   {project.tech.map((t, tIdx) => (
-                    <React.Fragment key={tIdx}>
-                      <span className="tag-pill">
-                        {t}
-                      </span>
+                    <span 
+                      key={tIdx} 
+                      className="tag-pill"
+                      style={{ whiteSpace: 'nowrap', display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}
+                    >
+                      <span>{t}</span>
                       {tIdx < project.tech.length - 1 && (
                         <span style={{ color: 'var(--text-muted)', fontSize: '0.7rem' }}>•</span>
                       )}
-                    </React.Fragment>
+                    </span>
                   ))}
                 </div>
 

@@ -15,7 +15,7 @@ import ScrollToTop from './components/ScrollToTop';
 export default function App() {
   const [resumeOpen, setResumeOpen] = useState(false);
   const [theme, setTheme] = useState(() => {
-    return localStorage.getItem('portfolio-theme') || 'dark';
+    return localStorage.getItem('portfolio-theme') || 'light';
   });
 
   useEffect(() => {

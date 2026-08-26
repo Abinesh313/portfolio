@@ -523,6 +523,26 @@ h6 {
   }
 }
 
+@media (max-width: 640px) {
+  .glass-card {
+    padding: 1.25rem !important;
+  }
+}
+
+.project-columns-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .project-columns-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+}
+
 @media (max-width: 768px) {
   #hero {
     padding-top: 5.5rem !important;
