@@ -47,20 +47,13 @@ export default function Experience() {
                 <div 
                   onClick={() => toggleCard(exp.id)}
                   style={{ 
-                    display: 'flex', 
-                    justifyContent: 'space-between', 
-                    alignItems: 'flex-start', 
-                    flexWrap: 'wrap', 
-                    gap: '1rem',
                     cursor: 'pointer',
                     userSelect: 'none'
                   }}
                 >
-                  <div style={{ flex: 1, minWidth: 0 }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap', marginBottom: '0.4rem' }}>
-                      <h3 style={{ fontSize: '1.45rem', fontWeight: 600, fontFamily: 'var(--font-display)', letterSpacing: '-0.02em' }}>
-                        {exp.role}
-                      </h3>
+                  {/* Top Row: Badges, Date, and Chevron on Right */}
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.65rem', gap: '0.5rem', flexWrap: 'wrap' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
                       <span 
                         style={{
                           padding: '0.2rem 0.75rem',
@@ -75,37 +68,25 @@ export default function Experience() {
                       >
                         {exp.badge}
                       </span>
-                    </div>
 
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '1.2rem', color: 'var(--text-accent-glow)', fontWeight: 600, fontSize: '0.98rem', flexWrap: 'wrap' }}>
-                      <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: 'var(--text-primary)', fontWeight: 600 }}>
-                        <Briefcase size={15} color="var(--accent-primary)" />
-                        {exp.company}
-                      </span>
-                      <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: 'var(--text-muted)', fontSize: '0.85rem' }}>
-                        <MapPin size={14} />
-                        {exp.location}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', flexWrap: 'wrap' }}>
-                    <div 
-                      style={{
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '0.4rem',
-                        fontFamily: 'var(--font-mono)',
-                        fontSize: '0.8rem',
-                        color: 'var(--text-secondary)',
-                        backgroundColor: 'rgba(255, 255, 255, 0.04)',
-                        padding: '0.35rem 0.85rem',
-                        borderRadius: 'var(--radius-full)',
-                        border: '1px solid var(--border-subtle)'
-                      }}
-                    >
-                      <Calendar size={13} color="var(--accent-primary)" />
-                      <span>{exp.period}</span>
+                      <div 
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '0.4rem',
+                          fontFamily: 'var(--font-mono)',
+                          fontSize: '0.78rem',
+                          color: 'var(--text-secondary)',
+                          backgroundColor: 'var(--bg-tag)',
+                          padding: '0.25rem 0.75rem',
+                          borderRadius: 'var(--radius-full)',
+                          border: '1px solid var(--border-subtle)',
+                          whiteSpace: 'nowrap'
+                        }}
+                      >
+                        <Calendar size={13} color="var(--accent-primary)" />
+                        <span>{exp.period}</span>
+                      </div>
                     </div>
 
                     {/* Bold Chevron Toggle Button */}
@@ -137,6 +118,23 @@ export default function Experience() {
                         <ChevronDown size={18} strokeWidth={2.8} />
                       )}
                     </button>
+                  </div>
+
+                  {/* Role Title (Full Width) */}
+                  <h3 style={{ fontSize: 'clamp(1.2rem, 3.2vw, 1.55rem)', fontWeight: 600, fontFamily: 'var(--font-display)', letterSpacing: '-0.02em', marginBottom: '0.35rem', lineHeight: 1.3, wordBreak: 'break-word' }}>
+                    {exp.role}
+                  </h3>
+
+                  {/* Company & Location Row */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', color: 'var(--text-accent-glow)', fontWeight: 600, fontSize: '0.94rem', flexWrap: 'wrap' }}>
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', color: 'var(--text-primary)', fontWeight: 600, whiteSpace: 'nowrap' }}>
+                      <Briefcase size={15} color="var(--accent-primary)" />
+                      {exp.company}
+                    </span>
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', color: 'var(--text-muted)', fontSize: '0.85rem', whiteSpace: 'nowrap' }}>
+                      <MapPin size={14} />
+                      {exp.location}
+                    </span>
                   </div>
                 </div>
 
