@@ -138,15 +138,17 @@ export default function GenerativeHeadline() {
         aria-hidden="true"
         style={{
           fontFamily: 'var(--font-display)',
-          fontSize: 'clamp(2.3rem, 4.6vw, 3.6rem)',
-          lineHeight: 1.15,
+          fontSize: 'clamp(1.75rem, 5.2vw, 3.5rem)',
+          lineHeight: 1.18,
           fontWeight: 600,
-          letterSpacing: '-0.035em',
+          letterSpacing: '-0.03em',
           margin: 0,
           padding: 0,
           visibility: 'hidden',
           pointerEvents: 'none',
-          gridArea: '1 / 1 / 2 / 2'
+          gridArea: '1 / 1 / 2 / 2',
+          wordBreak: 'break-word',
+          overflowWrap: 'break-word'
         }}
       >
         Optimizing distributed data pipelines & high-throughput systems.
@@ -156,13 +158,15 @@ export default function GenerativeHeadline() {
       <h1
         style={{
           fontFamily: 'var(--font-display)',
-          fontSize: 'clamp(2.3rem, 4.6vw, 3.6rem)',
-          lineHeight: 1.15,
+          fontSize: 'clamp(1.75rem, 5.2vw, 3.5rem)',
+          lineHeight: 1.18,
           fontWeight: 600,
-          letterSpacing: '-0.035em',
+          letterSpacing: '-0.03em',
           margin: 0,
           padding: 0,
-          gridArea: '1 / 1 / 2 / 2'
+          gridArea: '1 / 1 / 2 / 2',
+          wordBreak: 'break-word',
+          overflowWrap: 'break-word'
         }}
       >
         {renderGenerativeSegments()}

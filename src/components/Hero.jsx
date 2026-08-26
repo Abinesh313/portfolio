@@ -22,16 +22,7 @@ export default function Hero({ onOpenResume }) {
       <div className="container">
 
         {/* Hero Split Grid (Intro + Interactive Terminal) */}
-        <div 
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
-            gap: '3rem',
-            alignItems: 'center',
-            marginBottom: '3rem'
-          }}
-          className="hero-split"
-        >
+        <div className="hero-split">
           {/* Left Column: Headline & Intro */}
           <div>
             <p className="section-label">Backend-Leaning Full-Stack Engineer</p>
