@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 import TechMarquee from './components/TechMarquee';
 import ResumeModal from './components/ResumeModal';
 import InteractiveBackground from './components/InteractiveBackground';
+import ScrollToTop from './components/ScrollToTop';
 
 export default function App() {
   const [resumeOpen, setResumeOpen] = useState(false);
@@ -90,6 +91,9 @@ export default function App() {
 
       {/* Footer */}
       <Footer />
+
+      {/* Floating Scroll To Top Action */}
+      <ScrollToTop />
 
       {/* Resume Viewer / Print Modal */}
       <ResumeModal 
